@@ -7,10 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javaparser-core-3.25.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/javaparser jars/javaparser-core/3.25.5/javaparser-core-3.25.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -18,17 +18,8 @@
     </orderEntry>
     <orderEntry type="module-library">
       <library>
-        <CLASSES />
-        <JAVADOC>
-          <root url="jar://$USER_HOME$/Downloads/javaparser-core-3.25.5-javadoc.jar!/" />
-        </JAVADOC>
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
         <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-symbol-solver-core/3.25.5/javaparser-symbol-solver-core-3.25.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/javaparser jars/javaparser-symbol-solver-core/3.25.5/javaparser-symbol-solver-core-3.25.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
