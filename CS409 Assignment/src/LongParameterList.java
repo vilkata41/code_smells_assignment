@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 
 public class LongParameterList {
 
-    public static void main(String[] args) throws Exception {
+    public void test_run() throws Exception {
         FileInputStream in = new FileInputStream("Grid.java");
 
         CompilationUnit cu;

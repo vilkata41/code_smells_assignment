@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class LargeClassStatements {
 
 
-    public static void main(String[] args) throws Exception {
+    public void test_run() throws Exception {
 
         FileInputStream in = new FileInputStream("Grid.java");
         CompilationUnit cu;

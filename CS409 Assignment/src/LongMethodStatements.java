@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class LongMethodStatements {
 
-    public static void main(String[] args) throws Exception {
+    public void test_run() throws Exception {
 
         FileInputStream in = new FileInputStream("Grid.java");
         CompilationUnit cu;
