@@ -1,13 +1,18 @@
 
 public class RunAllTests {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         try {
-//            new LongParameterList().test_run();
-//            new LargeClassStatements().test_run();
-//            new LongMethodStatements().test_run();
-//            new TemporaryField().test_run("Grid.java");
-            new FeatureEnvy().test_run("Customer.java");
-            new FeatureEnvy().test_run("Basket.java");
+            /* THIS HERE is the only thing that needs to be modified, all tests implemented will
+             * be run on the file specified in class_to_check.
+             */
+            String class_to_check = "Grid.java";
+
+            new LongParameterList().test_run(class_to_check);
+            new LargeClassStatements().test_run(class_to_check);
+            new LongMethodStatements().test_run(class_to_check);
+            new TemporaryField().test_run(class_to_check);
+            new FeatureEnvy().test_run(class_to_check);
+            new InappropriateIntimacy().test_run(class_to_check);
         }
         catch(Exception ex){
             System.out.println("Something went wrong: " + ex.getMessage());

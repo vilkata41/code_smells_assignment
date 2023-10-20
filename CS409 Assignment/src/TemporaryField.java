@@ -23,7 +23,7 @@ public class TemporaryField {
      * **/
 
     public void test_run(String input_file) throws Exception {
-        System.out.println("Running 'Temporary Field' smell detection...");
+        System.out.println("\nRunning 'Temporary Field' checks...");
 
         FileInputStream in = new FileInputStream(input_file);
         CompilationUnit cu;
@@ -43,7 +43,6 @@ public class TemporaryField {
 
         @Override
         public void visit(ClassOrInterfaceDeclaration n, Object arg) {
-            System.out.println("Checking CLASS: " + n.getName());
 
             //tells how many methods have used a certain variable, starting from 0 when declared
             HashMap<String, Integer> fieldVariablesVisitedTimes = new HashMap<>();
@@ -72,7 +71,7 @@ public class TemporaryField {
 
             fieldVariablesVisitedTimes.forEach((k,v) -> {
                 if(v == 1){
-                    System.out.println("Temporary field detected: " + k);
+                    System.out.println("Temporary field detected (in CLASS: " + n.getName() + "): " + k);
                 }
             });
 

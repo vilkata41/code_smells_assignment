@@ -7,8 +7,9 @@ import java.io.FileInputStream;
 
 public class LongParameterList {
 
-    public void test_run() throws Exception {
-        FileInputStream in = new FileInputStream("Grid.java");
+    public void test_run(String filename) throws Exception {
+        System.out.println("\nRunning 'Long Parameter List' checks...");
+        FileInputStream in = new FileInputStream(filename);
 
         CompilationUnit cu;
         try {

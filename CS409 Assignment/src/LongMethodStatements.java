@@ -12,9 +12,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class LongMethodStatements {
 
-    public void test_run() throws Exception {
+    public void test_run(String filename) throws Exception {
+        System.out.println("\nRunning 'Long Method Statements' checks...");
 
-        FileInputStream in = new FileInputStream("Grid.java");
+        FileInputStream in = new FileInputStream(filename);
         CompilationUnit cu;
         try {
             cu = StaticJavaParser.parse(in);
