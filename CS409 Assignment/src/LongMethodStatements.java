@@ -11,6 +11,11 @@ import java.io.FileInputStream;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class LongMethodStatements {
+    /** Algorithm logic:
+     *  We find all Statements in a method by the .findAll() method. Then, we count them using an atomic integer.
+     *  If there are more than 20 statements in a given method, it is considered to be with too many statements.
+     *  Meaning, we've discovered the Long Method smell.
+     * **/
 
     public void test_run(String filename) throws Exception {
         System.out.println("\nRunning 'Long Method Statements' checks...");

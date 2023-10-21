@@ -11,7 +11,11 @@ import java.io.FileInputStream;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class LargeClassStatements {
-
+    /** Algorithm logic:
+     *  We find all Statements in the class by the .findAll() method. Then, we count them using an atomic integer.
+     *  If there are more than 100 statements in a given class, it is considered to be with too many statements.
+     *  Meaning, we've discovered the Large Class smell.
+     * **/
 
     public void test_run(String filename) throws Exception {
         System.out.println("\nRunning 'Large Class Statements' checks...");

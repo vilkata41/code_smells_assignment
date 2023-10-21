@@ -15,8 +15,7 @@ import java.util.List;
 public class TemporaryField {
 
     /**
-     * My logic with this:
-     *
+     * Algorithm Logic:
      * 1. Visit all methods and see what methods access what fields.
      * 2. See what fields have not been accessed by more than 1 method.
      * 3. Smell detected.

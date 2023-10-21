@@ -24,7 +24,7 @@ public class InappropriateIntimacy {
      *    a) every class that is referred will be the key in the hashmap (including the class viewed)
      *    b) every method call will bring up the value in the (k,v) pair - BASED ON WHAT CLASS that method is in.
      * 2. Calculate the classes' percentage used.
-     * 3. If any outer class has over 35% used, it will be considered Inappropriately Intimate to the given class.
+     * 3. If any outer class has over 25% used, it will be considered Inappropriately Intimate to the given class.
      * **/
     public void test_run(String filename_to_test) throws Exception {
         System.out.println("\nRunning 'Inappropriate Intimacy' checks...");
@@ -47,21 +47,22 @@ public class InappropriateIntimacy {
         @Override
         public void visit(ClassOrInterfaceDeclaration n, Object arg) {
             HashMap<String, Integer> methodCallExpressions = new HashMap<>();
-            int totalStatements = n.findAll(Statement.class).size();
+            List<String> all_scopes = new ArrayList<>();
 
             n.getMethods().forEach(m -> {
                 List<String> curr_scopes = new MethodVisitor().visit(m, arg);
                 for (String s : curr_scopes){
+                    all_scopes.add(s);
                     if(!methodCallExpressions.containsKey(s)) methodCallExpressions.put(s,1);
                     else methodCallExpressions.put(s,methodCallExpressions.get(s) + 1);
                 }
             });
 
             for(HashMap.Entry<String,Integer> entry: methodCallExpressions.entrySet()){
-                if(entry.getValue()*100/totalStatements > 35 && !entry.getKey().equals("this")) System.out.println(
+                if(entry.getValue()*100/all_scopes.size() > 25 && !entry.getKey().equals("this")) System.out.println(
                         "Inappropriate Intimacy detected (in CLASS: " + n.getName().toString() + ") for the following" +
                         " class instance variable: " + entry.getKey() + ". Used percentage: "
-                        + entry.getValue()*100/totalStatements + "%");
+                        + entry.getValue()*100/all_scopes.size()  + "%");
             }
             super.visit(n, arg);
         }
@@ -75,8 +76,8 @@ public class InappropriateIntimacy {
                 b.accept(new VoidVisitorAdapter() {
                     @Override
                     public void visit(MethodCallExpr n, Object arg) {
-                        scopes.add(n.getScope().get().toString());
-                        //FIXME: sometimes the getscope will return "no value present", try to figure out why.
+                        if(!n.hasScope()) scopes.add("this");
+                        else scopes.add(n.getScope().get().toString());
                         super.visit(n, arg);
                     }
                 }, arg);
