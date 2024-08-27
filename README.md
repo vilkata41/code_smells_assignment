@@ -1,4 +1,4 @@
-# CS409_Assignment
+# Software Architecture and Design Assignment
 
 This project was one of my university assignments which heavily focused on learning, detecting, and using design patterns in the programming process, as well as discovering inappropriate code errors before the code is compiled.
 
